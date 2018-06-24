@@ -15,8 +15,17 @@ public class BoutonSpecial extends JButton{
 		
 		switch(id) {
 			case(1):
-				this.setText("Terminer Placement");
+				this.setText("Commencer");
 			break;
+			
+			case(2):
+				this.setText("Terminer Placement ");
+			break;
+			
+			case(3): 
+				this.setText("Fin de Tour");
+			break;
+			}
 		}
 		
 		/*
@@ -25,5 +34,3 @@ public class BoutonSpecial extends JButton{
 		*/
 		
 	}
-	
-}

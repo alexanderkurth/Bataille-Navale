@@ -22,9 +22,12 @@ public class MenuBatailleNavale extends JFrame{
 	private JPanel intermediaire;
 	
 	//Gestion joueurs
-	//private BoutonSpecial changementTour;
+	private BoutonSpecial changementTour;
 	private JLabel nomJoueur;
-	private int numeroTour;
+	private int joueur = 1;
+	private boolean placement = true;
+	
+	private int nombreTours;
 	
 	//Grille
 	private Grille grilleJoueur1 ;
@@ -34,17 +37,113 @@ public class MenuBatailleNavale extends JFrame{
 	private Joueur joueur1 = new Joueur("Carlos",grilleJoueur1,1);
 	private Joueur joueur2 = new Joueur("Kukuss",grilleJoueur2,2);
 	
+	
+	// --------------------------------------------------Debut Constructeur-
 	public MenuBatailleNavale(){
 		this.nomJoueur = new JLabel("");
 		
-		/*
+		
 		this.changementTour = new BoutonSpecial("bouton",1);
 		//Taille du bouton changement Tour
 		Dimension d = new Dimension(250,100);
 		changementTour.setPreferredSize(d);
+		/*
+		this.changementTour.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				//tour 1 : j1 place ses bateaux
+				//tour 2 : j2 place ses bateaux				
+				
+				//tour pair : j1 attaque j2
+				//tour impair : j2 attaque j1
+			
+				System.out.println(numeroTour);			
+			}
+		});
 		
-		nomJoueur.setText(""+joueur1.getNomJoueur() +"place ses bateaux");
+		*/
 		
+		
+		this.changementTour.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				//tour 1 : j1 place ses bateaux
+				//tour 2 : j2 place ses bateaux				
+				
+				//tour pair : j1 attaque j2
+				//tour impair : j2 attaque j1
+				if(placement) {
+					System.out.println(joueur);
+				}
+						
+				
+				if(placement) {
+					if(joueur == 0) {
+						
+						nomJoueur.setText(joueur1.getNomJoueur() +" places ces bateaux");
+						
+						revalidate();
+						repaint();
+						centre.add(joueur1.getGrilleJoueur());
+						joueur1.getGrilleJoueur().gestionJeu(e);
+						
+						joueur++;
+					}else {
+						joueur--;
+						
+						nomJoueur.setText(joueur2.getNomJoueur() +" places ces bateaux");
+						
+						remove(joueur1.getGrilleJoueur());
+						revalidate();
+						repaint();
+						centre.add(joueur2.getGrilleJoueur());
+						joueur2.getGrilleJoueur().gestionJeu(e);
+						
+					}
+					
+					if(joueur1.getGrilleJoueur().getCasePorteAvion() == joueur2.getGrilleJoueur().getCasePorteAvion()) {
+						placement= false;
+						System.out.println(placement);
+					}
+					
+				}else {
+					System.out.println(nombreTours);
+					if(joueur == 0) {
+						
+						remove(joueur2.getGrilleJoueur());
+						revalidate();
+						repaint();
+						
+						nomJoueur.setText(joueur2.getNomJoueur() +" attaque");
+						nombreTours++;
+						
+						centre.add(joueur1.getGrilleJoueur());
+						joueur1.getGrilleJoueur().gestionJeu(e);
+						
+						joueur ++;
+					}else {
+						joueur --;
+						
+						remove(joueur1.getGrilleJoueur());
+						revalidate();
+						repaint();
+						
+						nomJoueur.setText(joueur1.getNomJoueur() +" attaque");
+						nombreTours++;
+						
+						centre.add(joueur2.getGrilleJoueur());
+						joueur2.getGrilleJoueur().gestionJeu(e);
+					}
+				}
+			}
+		});
+		
+
+		
+		/*
 		this.changementTour.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -123,17 +222,16 @@ public class MenuBatailleNavale extends JFrame{
 		this.intermediaire.setLayout(new BorderLayout());
 		
 		//Insertion des composants dans les layouts
-		this.centre.add(grilleJoueur1);
-		//this.intermediaire.add(changementTour,BorderLayout.SOUTH);
-		this.intermediaire.add(nomJoueur, BorderLayout.NORTH);
-		
+		this.intermediaire.add(changementTour,BorderLayout.SOUTH);
+		this.intermediaire.add(nomJoueur, BorderLayout.NORTH);	
 		this.droite.add(intermediaire);
+		
+		centre.add(joueur1.getGrilleJoueur());
 		
 		//Disposition des panels
 		this.add(centre, BorderLayout.WEST);
 		this.add(droite, BorderLayout.EAST);
-	
-
+		
 	//parametres de la fenetre
 		this.setTitle("Bataille Navale 54");
 		this.setSize(1200,700);
@@ -153,7 +251,19 @@ public class MenuBatailleNavale extends JFrame{
 				return true;
 			}else {
 				  return false;
-			}
+		}
+	}
+		
+		public void changerGrilleJoueur1() {
+			remove(joueur1.getGrilleJoueur());
+			revalidate();
+			repaint();
+		}
+
+		public void changerGrilleJoueur2() {
+			remove(joueur2.getGrilleJoueur());
+			revalidate();
+			repaint();
 		}
 
 }

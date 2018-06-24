@@ -399,10 +399,6 @@ public class Grille extends JPanel {
 		return verif;
 	}
 
-	public void setVerif(int verif) {
-		this.verif = verif;
-	}
-
 	public boolean isEstTermine() {
 		return estTermine;
 	}
@@ -426,8 +422,13 @@ public class Grille extends JPanel {
 	public void setTir(int tir) {
 		this.tir = tir;
 	}
-
+/*
 	public void augmenterTour() {
 		this.numeroTour += 1;
+	}
+	*/
+
+	public int getCasePorteAvion() {
+		return casePorteAvion;
 	}
 }
