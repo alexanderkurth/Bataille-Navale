@@ -25,7 +25,7 @@ public class MenuBatailleNavale extends JFrame{
 	
 	public MenuBatailleNavale(){
 		
-		this.changementTour = new BoutonSpecial("Bouton Special",0);
+		this.changementTour = new BoutonSpecial("Bouton Special",0); 
 		
 		
 		this.grilleJoueur1 = joueur1.getGrilleJoueur(); 
