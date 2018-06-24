@@ -10,7 +10,7 @@ public class Joueur {
 
 	public Joueur(String nom, Grille g, int x) {
 		this.nomJoueur = nom;
-		this.grilleJoueur = g;
+		this.grilleJoueur = new Grille(11,11);
 		this.numeroJoueur = x;
 	}
 	
