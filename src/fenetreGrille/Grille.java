@@ -136,7 +136,7 @@ public class Grille extends JPanel {
 				verif += 1;
 			}
 		});
-/*
+
 		this.JBTerminer = new BoutonSpecial("Terminer", 1);
 		JBTerminer.addActionListener(new ActionListener() {
 			@Override
@@ -155,21 +155,21 @@ public class Grille extends JPanel {
 					tousCoules();
 					if (tir == 0) {
 						((AbstractButton) e.getSource()).setText(""+numeroTour);
-						//numeroTour += 1;
-						//tir = 1;
+						numeroTour += 1;
+						tir = 1;
 					} else {
 						((AbstractButton) e.getSource()).setText("Vous devez tirer");
 					}
 				}
 			}
 		});
-*/
+
 		this.colonne.add(JRBPorteAvion);
 		this.colonne.add(JRBCroiseur);
 		this.colonne.add(JRBCroiseur2);
 		this.colonne.add(JRBSousMarin);
 		this.colonne.add(JRBTorpilleur);
-		//this.colonne.add(JBTerminer);
+		this.colonne.add(JBTerminer);
 		this.add(colonne);
 
 		// ------------------------------------------------------------- Grille
@@ -394,6 +394,39 @@ public class Grille extends JPanel {
 		this.numeroTour = numeroTour;
 	}
 
+	public int getVerif() {
+		return verif;
+	}
+
+	public void setVerif(int verif) {
+		this.verif = verif;
+	}
+
+	public boolean isEstTermine() {
+		return estTermine;
+	}
+
+	public void setEstTermine(boolean estTermine) {
+		this.estTermine = estTermine;
+	}
+
+	public boolean isEnjeu() {
+		return enjeu;
+	}
+
+	public void setEnjeu(boolean enjeu) {
+		this.enjeu = enjeu;
+	}
+
+	public int getTir() {
+		return tir;
+	}
+
+	public void setTir(int tir) {
+		this.tir = tir;
+	}
 	
-	
+	public void augmenterTour() {
+		this.numeroTour +=1;
+	}
 }
