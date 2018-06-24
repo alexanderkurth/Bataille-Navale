@@ -19,13 +19,12 @@ import divers.BoutonSpecial;
 import divers.BoutonsSpeciaux;
 import joueur.Joueur;
 
-
 public class Grille extends JPanel {
-	
-	//-----------------------------------------------------------Joueur
+
+	// -----------------------------------------------------------Joueur
 	private Joueur joueur;
-	
-	//------------------------------------------------------------Utilitaire
+
+	// ------------------------------------------------------------Utilitaire
 	private int correcteur = 1;
 
 	private Bateau b;
@@ -49,9 +48,6 @@ public class Grille extends JPanel {
 	// ------------------------------------------------------------- Grille
 
 	private int tir;
-
-
-
 	private boolean estTermine = false;
 	private boolean enjeu;
 
@@ -141,26 +137,7 @@ public class Grille extends JPanel {
 		JBTerminer.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (verif == 5) {
-					colorierGrille();
-					enjeu = true;
-					verif = 6;
-				}
-				if (enjeu) {
-					((AbstractButton) e.getSource()).setText("Commencer");
-					estTermine = true;
-				}
-
-				if (estTermine) {
-					tousCoules();
-					if (tir == 0) {
-						((AbstractButton) e.getSource()).setText(""+numeroTour);
-						numeroTour += 1;
-						tir = 1;
-					} else {
-						((AbstractButton) e.getSource()).setText("Vous devez tirer");
-					}
-				}
+				gestionJeu(e);
 			}
 		});
 
@@ -308,19 +285,43 @@ public class Grille extends JPanel {
 		switch (b.getTypeBateau()) {
 		case (-5):
 			casePorteAvion += 1;
-			break;
+		break;
 
 		case (-4):
 			caseCroiseur += 1;
-			break;
+		break;
 
 		case (-3):
 			caseSousMarin += 1;
-			break;
+		break;
 
 		case (-2):
 			caseTorpilleur += 1;
-			break;
+		break;
+		}
+	}
+
+	// -----------------------------------------Gestion Jeu
+	public void gestionJeu(ActionEvent e) {
+		if (verif == 5) {
+			colorierGrille();
+			enjeu = true;
+			verif = 6;
+		}
+		if (enjeu) {
+			((AbstractButton) e.getSource()).setText("Commencer");
+			estTermine = true;
+		}
+
+		if (estTermine) {
+			tousCoules();
+			if (tir == 0) {
+				((AbstractButton) e.getSource()).setText("" + numeroTour);
+				numeroTour += 1;
+				tir = 1;
+			} else {
+				((AbstractButton) e.getSource()).setText("Vous devez tirer");
+			}
 		}
 	}
 
@@ -330,43 +331,43 @@ public class Grille extends JPanel {
 
 		case (0):
 			tir = 1;
-			System.out.println("Case Deja Jouée");
-			break;
+		System.out.println("Case Deja Jouée");
+		break;
 
 		case (-1):
 			((Case) e.getSource()).setBackground(Color.BLACK);
-			((Case) e.getSource()).setType(0);
-			tir = 0;
-			break;
+		((Case) e.getSource()).setType(0);
+		tir = 0;
+		break;
 
 		case (-2):
 			((Case) e.getSource()).setBackground(Color.RED);
-			((Case) e.getSource()).setType(0);
-			caseTorpilleur -= 1;
-			tir = 0;
-			break;
+		((Case) e.getSource()).setType(0);
+		caseTorpilleur -= 1;
+		tir = 0;
+		break;
 
 		case (-3):
 			((Case) e.getSource()).setBackground(Color.RED);
-			((Case) e.getSource()).setType(0);
-			caseSousMarin -= 1;
-			tir = 0;
+		((Case) e.getSource()).setType(0);
+		caseSousMarin -= 1;
+		tir = 0;
 
-			break;
+		break;
 
 		case (-4):
 			((Case) e.getSource()).setBackground(Color.RED);
-			((Case) e.getSource()).setType(0);
-			caseCroiseur -= 1;
-			tir = 0;
-			break;
+		((Case) e.getSource()).setType(0);
+		caseCroiseur -= 1;
+		tir = 0;
+		break;
 
 		case (-5):
 			((Case) e.getSource()).setBackground(Color.RED);
-			((Case) e.getSource()).setType(0);
-			casePorteAvion -= 1;
-			tir = 0;
-			break;
+		((Case) e.getSource()).setType(0);
+		casePorteAvion -= 1;
+		tir = 0;
+		break;
 
 		}
 	}
@@ -425,8 +426,8 @@ public class Grille extends JPanel {
 	public void setTir(int tir) {
 		this.tir = tir;
 	}
-	
+
 	public void augmenterTour() {
-		this.numeroTour +=1;
+		this.numeroTour += 1;
 	}
 }
