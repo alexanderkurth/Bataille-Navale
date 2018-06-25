@@ -40,30 +40,13 @@ public class MenuBatailleNavale extends JFrame{
 	
 	// --------------------------------------------------Debut Constructeur-
 	public MenuBatailleNavale(){
-		this.nomJoueur = new JLabel("");
+		this.nomJoueur = new JLabel(joueur2.getNomJoueur() + "place ces bateaux");
 		
 		
 		this.changementTour = new BoutonSpecial("bouton",1);
 		//Taille du bouton changement Tour
 		Dimension d = new Dimension(250,100);
 		changementTour.setPreferredSize(d);
-		/*
-		this.changementTour.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				//tour 1 : j1 place ses bateaux
-				//tour 2 : j2 place ses bateaux				
-				
-				//tour pair : j1 attaque j2
-				//tour impair : j2 attaque j1
-			
-				System.out.println(numeroTour);			
-			}
-		});
-		
-		*/
-		
 		
 		this.changementTour.addActionListener(new ActionListener() {
 			@Override
@@ -104,9 +87,12 @@ public class MenuBatailleNavale extends JFrame{
 						
 					}
 					
-					if(joueur1.getGrilleJoueur().getCasePorteAvion() == joueur2.getGrilleJoueur().getCasePorteAvion()) {
+					if(joueur1.getGrilleJoueur().getTotalCaseBateau() == joueur2.getGrilleJoueur().getTotalCaseBateau()) {
 						placement= false;
 						System.out.println(placement);
+						
+						nomJoueur.setText(joueur2.getNomJoueur() +" attaque");
+						
 					}
 					
 				}else {
@@ -140,73 +126,7 @@ public class MenuBatailleNavale extends JFrame{
 				}
 			}
 		});
-		
 
-		
-		/*
-		this.changementTour.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				
-				 * pair : joueur1 joue
-				 * impair : joueur 2 joue
-				 
-				
-				if(estPair(numeroTour)) {
-					
-					Grille grilleJ1 = joueur1.getGrilleJoueur();
-					
-					
-					if(grilleJ1.getVerif() == 5) {
-						grilleJ1.colorierGrille();
-						grilleJ1.setEnjeu(true);
-						grilleJ1.setVerif(6);					
-					}
-					if(grilleJ1.isEnjeu()) {
-						changementTour.setText("Commencer");
-						grilleJ1.setEstTermine(true);
-					}
-					if(grilleJ1.isEstTermine()) {
-						grilleJ1.tousCoules();
-						if(grilleJ1.getTir() == 0) {							
-							grilleJ1.augmenterTour();
-							System.out.println(grilleJ1.getNumeroTour());							
-							grilleJ1.setTir(1);	
-						}else {
-							changementTour.setText("Vous devez tirer");
-						}
-					}
-					numeroTour ++;
-				}else {
-					Grille grilleJ2 = joueur2.getGrilleJoueur();
-					
-					
-					if(grilleJ2.getVerif() == 5) {
-						grilleJ2.colorierGrille();
-						grilleJ2.setEnjeu(true);
-						grilleJ2.setVerif(6);					
-					}
-					if(grilleJ2.isEnjeu()) {
-						changementTour.setText("Commencer");
-						grilleJ2.setEstTermine(true);
-					}
-					if(grilleJ2.isEstTermine()) {
-						grilleJ2.tousCoules();
-						if(grilleJ2.getTir() == 0) {							
-							grilleJ2.augmenterTour();
-							System.out.println(grilleJ2.getNumeroTour());							
-							grilleJ2.setTir(1);	
-						}else {
-							changementTour.setText("Vous devez tirer");
-						}
-					}
-					numeroTour ++;
-				}
-				
-			}
-		});
-	*/
 		//Initialisation grille joueurs
 		this.grilleJoueur1 = joueur1.getGrilleJoueur(); 
 		this.grilleJoueur2 = joueur2.getGrilleJoueur(); 

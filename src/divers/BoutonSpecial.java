@@ -27,10 +27,4 @@ public class BoutonSpecial extends JButton{
 			break;
 			}
 		}
-		
-		/*
-		Dimension d = new Dimension(150,50);
-		this.setPreferredSize(d);
-		*/
-		
 	}

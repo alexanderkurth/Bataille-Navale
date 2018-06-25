@@ -132,7 +132,7 @@ public class Grille extends JPanel {
 				verif += 1;
 			}
 		});
-
+/*
 		this.JBTerminer = new BoutonSpecial("Terminer", 1);
 		JBTerminer.addActionListener(new ActionListener() {
 			@Override
@@ -140,13 +140,13 @@ public class Grille extends JPanel {
 				gestionJeu(e);
 			}
 		});
-
+*/
 		this.colonne.add(JRBPorteAvion);
 		this.colonne.add(JRBCroiseur);
 		this.colonne.add(JRBCroiseur2);
 		this.colonne.add(JRBSousMarin);
 		this.colonne.add(JRBTorpilleur);
-		this.colonne.add(JBTerminer);
+		//this.colonne.add(JBTerminer);
 		this.add(colonne);
 
 		// ------------------------------------------------------------- Grille
@@ -422,13 +422,13 @@ public class Grille extends JPanel {
 	public void setTir(int tir) {
 		this.tir = tir;
 	}
-/*
-	public void augmenterTour() {
-		this.numeroTour += 1;
-	}
-	*/
 
 	public int getCasePorteAvion() {
 		return casePorteAvion;
+	}
+	
+	public int getTotalCaseBateau() {
+		int x= this.caseCroiseur+this.casePorteAvion+this.caseSousMarin+this.caseTorpilleur;	
+		return x;
 	}
 }
