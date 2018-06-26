@@ -43,7 +43,7 @@ public class MenuBatailleNavale extends JFrame{
 		this.nomJoueur = new JLabel(joueur2.getNomJoueur() + "place ces bateaux");
 		
 		
-		this.changementTour = new BoutonSpecial("bouton",1);
+		this.changementTour = new BoutonSpecial("bouton",2);
 		//Taille du bouton changement Tour
 		Dimension d = new Dimension(250,100);
 		changementTour.setPreferredSize(d);
@@ -58,6 +58,7 @@ public class MenuBatailleNavale extends JFrame{
 				
 				//tour pair : j1 attaque j2
 				//tour impair : j2 attaque j1
+				
 				if(placement) {
 					System.out.println(joueur);
 				}
@@ -66,7 +67,10 @@ public class MenuBatailleNavale extends JFrame{
 				if(placement) {
 					if(joueur == 0) {
 						
-						nomJoueur.setText(joueur1.getNomJoueur() +" places ces bateaux");
+						if(((BoutonSpecial) e.getSource()).getId() == 2) {
+							nomJoueur.setText(joueur1.getNomJoueur() +" places ces bateaux");
+						}
+						
 						
 						revalidate();
 						repaint();

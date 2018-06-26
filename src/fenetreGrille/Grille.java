@@ -309,14 +309,13 @@ public class Grille extends JPanel {
 			verif = 6;
 		}
 		if (enjeu) {
-			((AbstractButton) e.getSource()).setText("Commencer");
+			//((AbstractButton) e.getSource()).setText("Commencer");
 			estTermine = true;
 		}
 
 		if (estTermine) {
 			tousCoules();
 			if (tir == 0) {
-				((AbstractButton) e.getSource()).setText("" + numeroTour);
 				numeroTour += 1;
 				tir = 1;
 			} else {
