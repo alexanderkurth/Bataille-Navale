@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import divers.BoutonSpecial;
+import boutonsPersonnalises.BoutonSpecial;
 import fenetreGrille.Grille;
 import interfaceUtilisateur.InterfacePrincipale;
 import joueur.Joueur;

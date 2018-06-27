@@ -1,4 +1,4 @@
-package divers;
+package boutonsPersonnalises;
 
 import java.awt.Dimension;
 

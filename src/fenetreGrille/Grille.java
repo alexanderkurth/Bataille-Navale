@@ -15,8 +15,8 @@ import bateauxBatailleNavale.BateauCroiseur;
 import bateauxBatailleNavale.BateauPorteAvion;
 import bateauxBatailleNavale.BateauSousMarin;
 import bateauxBatailleNavale.Torpilleur;
-import divers.BoutonSpecial;
-import divers.BoutonsSpeciaux;
+import boutonsPersonnalises.BoutonSpecial;
+import boutonsPersonnalises.BoutonsSpeciaux;
 import joueur.Joueur;
 
 public class Grille extends JPanel {
