@@ -11,10 +11,11 @@ import javax.swing.JPanel;
 
 import divers.BoutonSpecial;
 import fenetreGrille.Grille;
+import interfaceUtilisateur.InterfacePrincipale;
 import joueur.Joueur;
 
 
-public class MenuBatailleNavale extends JFrame{
+public class MainJeuBatailleNavale extends JFrame{
 	
 	//Jpanel
 	private JPanel centre;
@@ -39,7 +40,7 @@ public class MenuBatailleNavale extends JFrame{
 	
 	
 	// --------------------------------------------------Debut Constructeur-
-	public MenuBatailleNavale(){
+	public MainJeuBatailleNavale(){
 		this.nomJoueur = new JLabel(joueur2.getNomJoueur() + "place ces bateaux");
 		
 		
@@ -163,11 +164,6 @@ public class MenuBatailleNavale extends JFrame{
 		this.setLocationRelativeTo(null);
 
 		this.setVisible(true);		
-		}
-
-		//Main
-		public static void main(String[] args) {
-			new MenuBatailleNavale();
 		}
 		
 		public boolean estPair(int x) {
