@@ -2,6 +2,10 @@ package joueur;
 
 import fenetreGrille.Grille;
 
+/**
+ * @author KURTH Alexander
+ *
+ */
 public class Joueur {
 
 	private String nomJoueur;

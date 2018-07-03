@@ -19,6 +19,10 @@ import boutonsPersonnalises.BoutonSpecial;
 import boutonsPersonnalises.BoutonsSpeciaux;
 import joueur.Joueur;
 
+/**
+ * @author KURTH Alexander
+ *
+ */
 public class Grille extends JPanel {
 
 	// -----------------------------------------------------------Joueur
