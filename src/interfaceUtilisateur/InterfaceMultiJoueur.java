@@ -20,7 +20,7 @@ public class InterfaceMultiJoueur extends FenetreAmelioree{
 	public InterfaceMultiJoueur(String nom, int width, int height) {
 		super("Multi-joueur", 1200, 700);
 		
-		
+		Jouer();
 	}
 	
 	public void Jouer() {
