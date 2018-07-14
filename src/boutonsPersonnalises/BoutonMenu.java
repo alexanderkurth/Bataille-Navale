@@ -10,7 +10,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 
+import interfaceUtilisateur.InterfaceMultiJoueur;
 import interfaceUtilisateur.InterfaceRegles;
+import interfaceUtilisateur.InterfaceSolo;
 
 /**
  * @author KURTH Alexander
@@ -40,11 +42,13 @@ public class BoutonMenu extends JButton{
 				switch(id) {
 				case(1):
 					System.out.println("1");
+					new InterfaceSolo("un joueur", 1300, 800);
 					
 				break;
 				
 				case(2):
 					System.out.println("2");
+				new InterfaceMultiJoueur("Multi Joueur",1300,800);
 				break;
 				
 				case(3):
