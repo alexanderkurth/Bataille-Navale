@@ -35,12 +35,12 @@ public class MainJeuBatailleNavale extends JFrame{
 	private Grille grilleJoueur2 ;
 
 	//Joueur
-	private Joueur joueur1 = new Joueur("Carlos",grilleJoueur1,1);
-	private Joueur joueur2 = new Joueur("Kukuss",grilleJoueur2,2);
+	private Joueur joueur1 ;//= new Joueur("Carlos",grilleJoueur1,1);
+	private Joueur joueur2 ;//= new Joueur("Kukuss",grilleJoueur2,2);
 	
 	
 	// --------------------------------------------------Debut Constructeur-
-	public MainJeuBatailleNavale(){
+	public MainJeuBatailleNavale(Joueur joueur1, Joueur joueur2){
 		this.nomJoueur = new JLabel(joueur2.getNomJoueur() + "place ces bateaux");
 		
 		

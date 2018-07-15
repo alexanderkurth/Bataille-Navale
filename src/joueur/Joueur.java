@@ -33,5 +33,9 @@ public class Joueur {
 
 	public int getNumeroJoueur() {
 		return numeroJoueur;
+	}
+	
+	public void setNomJoueur(String nomJoueur) {
+		this.nomJoueur = nomJoueur;
 	}	
 }

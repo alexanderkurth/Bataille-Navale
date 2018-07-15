@@ -48,7 +48,7 @@ public class BoutonMenu extends JButton{
 				
 				case(2):
 					System.out.println("2");
-				new InterfaceMultiJoueur("Multi Joueur",1300,800);
+					new InterfaceMultiJoueur("Multi Joueur",1300,800);
 				break;
 				
 				case(3):
