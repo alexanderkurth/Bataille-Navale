@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 import fenetreGrille.Grille;
 import fenetres.FenetreAmelioree;
@@ -45,7 +46,7 @@ public class InterfaceMultiJoueur extends FenetreAmelioree{
 	 * @param height
 	 */
 	public InterfaceMultiJoueur(String nom, int width, int height) {
-		super("Multi-joueur", 1200, 700);
+		super("Multi-joueur", 500, 250);
 		
 		this.centre = new JPanel();
 		this.intermediaire = new JPanel();
@@ -78,14 +79,16 @@ public class InterfaceMultiJoueur extends FenetreAmelioree{
 					System.out.println("1");
 					Jouer();
 				}
-				
-			}
-			
+			}	
 		});
 	}
 	
 	public void Jouer() {
 		new MainJeuBatailleNavale(joueur1,joueur2);
+	}
+	
+	public void exit() {
+		SwingUtilities.windowForComponent(this).dispose();
 	}
 
 }
