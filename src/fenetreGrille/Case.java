@@ -31,7 +31,7 @@ public class Case extends JButton{
 		
 		Dimension d = new Dimension(55,55);
 		this.setPreferredSize(d);
-		/*
+		
 		this.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -40,7 +40,7 @@ public class Case extends JButton{
 
 
 		});
-		*/
+		
 	}
 
 	public int getType() {
