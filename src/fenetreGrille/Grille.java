@@ -12,7 +12,8 @@ import javax.swing.AbstractButton;
 import javax.swing.JPanel;
 
 import bateauxBatailleNavale.Bateau;
-import bateauxBatailleNavale.BateauCroiseur;
+import bateauxBatailleNavale.BateauCroiseur1;
+import bateauxBatailleNavale.BateauCroiseur2;
 import bateauxBatailleNavale.BateauPorteAvion;
 import bateauxBatailleNavale.BateauSousMarin;
 import bateauxBatailleNavale.Torpilleur;
@@ -110,7 +111,7 @@ public class Grille extends JPanel {
 		JRBCroiseur.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				b = new BateauCroiseur();
+				b = new BateauCroiseur1();
 				tailleBateau = b.getLongueurBateau();
 				JRBCroiseur.setEnabled(false);
 				verif += 1;
@@ -121,7 +122,7 @@ public class Grille extends JPanel {
 		JRBCroiseur2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				b = new BateauCroiseur();
+				b = new BateauCroiseur2();
 				tailleBateau = b.getLongueurBateau();
 				JRBCroiseur2.setEnabled(false);
 				verif += 1;
@@ -300,52 +301,8 @@ public class Grille extends JPanel {
 					caseGrille[abcisse + correcteur][ordonnee + correcteur + w].setBackground(Color.RED);
 					caseGrille[abcisse + correcteur][ordonnee + correcteur + w].setType(-1);
 				}
-			}
-			
-			
-		}/*
-			tailleBateau = b.getLongueurBateau();
-			
-			for (int w = 0; w < tailleBateau; w++) {
-				if(caseGrille[abcisse + correcteur][ordonnee + correcteur + w].getType() == -1) {
-					caseGrille[abcisse + correcteur][ordonnee + correcteur + w].setBackground(Color.CYAN);
-					caseGrille[abcisse + correcteur][ordonnee + correcteur + w].setType(-1);
-				}
-
-			}
-			
-			/*
-			for (int z = 0; z < tailleBateau; z++) {
-			caseGrille[abcisse + correcteur][ordonnee + correcteur + z+ (obstacle+1)].setBackground(Color.CYAN);
-			caseGrille[abcisse + correcteur][ordonnee + correcteur + z + (obstacle+1)].setType(b.getTypeBateau());
-			nombreCaseBateau();						
-			}*/
-		//}
-		/*
-		else {
-			while(caseGrille[abcisse + correcteur][ordonnee + correcteur + x].getType() != -1){
-				x++;
-				System.out.println("Taille x :" + x);
-			}
-			
-			if(obstacle > 1 &&  x >1) {
-				System.out.println("sbeul");
-				
-				for(int w=0; w<tailleBateau; w++){
-					caseGrille[abcisse + correcteur][ordonnee + correcteur +x+w].setBackground(Color.YELLOW);
-					caseGrille[abcisse + correcteur][ordonnee + correcteur + x+w].setType(b.getTypeBateau());
-					nombreCaseBateau();
-				}
-			}
-			
-			if(obstacle ==2  &&  x >2) {
-				System.out.println("kamoulox");
-			}
-			
-			if(obstacle == 1 && x>2) {
-				System.out.println("chaussette");
-			}
-		}*/
+			}	
+		}
 		obstacle =0;
 	}
 
@@ -356,10 +313,29 @@ public class Grille extends JPanel {
 					caseGrille[abcisse + correcteur][ordonnee + correcteur - y].setBackground(Color.PINK);
 					caseGrille[abcisse + correcteur][ordonnee + correcteur - y].setType(b.getTypeBateau());
 					nombreCaseBateau();
-				}
+				}else {
+					
+					if(caseGrille[abcisse + correcteur][ordonnee + correcteur - y].getType() != -1) {
+						obstacle += 1;
+						System.out.println("Taille obstacle : " + obstacle);		
+					}
+				}	
 			}
 			tailleBateau = 0;
 		}				
+		
+		if(obstacle != 0 ) {
+			System.out.println("sbeul");
+			tailleBateau = b.getLongueurBateau();
+			caseGrille[abcisse + correcteur][ordonnee + correcteur ].setBackground(Color.RED);
+			for (int w = 0; w < tailleBateau; w++) {
+				if(caseGrille[abcisse + correcteur][ordonnee + correcteur - w].getType() == b.getTypeBateau()) {
+					caseGrille[abcisse + correcteur][ordonnee + correcteur - w].setBackground(Color.RED);
+					caseGrille[abcisse + correcteur][ordonnee + correcteur - w].setType(-1);
+				}
+			}	
+		}
+		obstacle =0;
 	}
 
 	public void bateauVerticalBas() {
@@ -369,12 +345,30 @@ public class Grille extends JPanel {
 					caseGrille[abcisse + correcteur + y][ordonnee + correcteur ].setBackground(Color.PINK);
 					caseGrille[abcisse + correcteur + y][ordonnee + correcteur ].setType(b.getTypeBateau());
 					nombreCaseBateau();
-				}
+				}else {
+					
+					if(caseGrille[abcisse + correcteur +y][ordonnee + correcteur].getType() != -1) {
+						obstacle += 1;
+						System.out.println("Taille obstacle : " + obstacle);		
+					}
+				}	
 			}
 			tailleBateau = 0;
 		}				
+		
+		if(obstacle != 0 ) {
+			System.out.println("sbeul");
+			tailleBateau = b.getLongueurBateau();
+			caseGrille[abcisse + correcteur][ordonnee + correcteur ].setBackground(Color.RED);
+			for (int w = 0; w < tailleBateau; w++) {
+				if(caseGrille[abcisse + correcteur +w][ordonnee + correcteur ].getType() == b.getTypeBateau()) {
+					caseGrille[abcisse + correcteur+w][ordonnee + correcteur ].setBackground(Color.RED);
+					caseGrille[abcisse + correcteur +w][ordonnee + correcteur ].setType(-1);
+				}
+			}	
+		}
+		obstacle =0;
 	}
-
 	public void bateauVerticalHaut() {
 		if(caseGrille[abcisse + correcteur][ordonnee + correcteur ].getType() == -1) {
 			for (int y = 0; y < tailleBateau; y++) {
@@ -382,10 +376,29 @@ public class Grille extends JPanel {
 					caseGrille[abcisse + correcteur - y][ordonnee + correcteur].setBackground(Color.PINK);
 					caseGrille[abcisse + correcteur - y][ordonnee + correcteur].setType(b.getTypeBateau());
 					nombreCaseBateau();
-				}
+				}else {
+					
+					if(caseGrille[abcisse + correcteur -y][ordonnee + correcteur ].getType() != -1) {
+						obstacle += 1;
+						System.out.println("Taille obstacle : " + obstacle);		
+					}
+				}	
 			}
 			tailleBateau = 0;
 		}				
+		
+		if(obstacle != 0 ) {
+			System.out.println("sbeul");
+			tailleBateau = b.getLongueurBateau();
+			caseGrille[abcisse + correcteur][ordonnee + correcteur ].setBackground(Color.RED);
+			for (int w = 0; w < tailleBateau; w++) {
+				if(caseGrille[abcisse + correcteur -w][ordonnee + correcteur ].getType() == b.getTypeBateau()) {
+					caseGrille[abcisse + correcteur -w][ordonnee + correcteur].setBackground(Color.RED);
+					caseGrille[abcisse + correcteur -w][ordonnee + correcteur].setType(-1);
+				}
+			}	
+		}
+		obstacle =0;
 	}
 
 	public void nombreCaseBateau() {
