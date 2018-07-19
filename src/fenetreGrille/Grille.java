@@ -282,7 +282,7 @@ public class Grille extends JPanel {
 					caseGrille[abcisse + correcteur][ordonnee + correcteur + y].setType(b.getTypeBateau());
 					nombreCaseBateau();
 				}else {
-					
+
 					if(caseGrille[abcisse + correcteur][ordonnee + correcteur + y].getType() != -1) {
 						obstacle += 1;
 						System.out.println("Taille obstacle : " + obstacle);		
@@ -291,7 +291,7 @@ public class Grille extends JPanel {
 			}
 			tailleBateau = 0;
 		}
-		
+
 		if(obstacle != 0 ) {
 			System.out.println("sbeul");
 			tailleBateau = b.getLongueurBateau();
@@ -314,7 +314,7 @@ public class Grille extends JPanel {
 					caseGrille[abcisse + correcteur][ordonnee + correcteur - y].setType(b.getTypeBateau());
 					nombreCaseBateau();
 				}else {
-					
+
 					if(caseGrille[abcisse + correcteur][ordonnee + correcteur - y].getType() != -1) {
 						obstacle += 1;
 						System.out.println("Taille obstacle : " + obstacle);		
@@ -323,7 +323,7 @@ public class Grille extends JPanel {
 			}
 			tailleBateau = 0;
 		}				
-		
+
 		if(obstacle != 0 ) {
 			System.out.println("sbeul");
 			tailleBateau = b.getLongueurBateau();
@@ -346,7 +346,7 @@ public class Grille extends JPanel {
 					caseGrille[abcisse + correcteur + y][ordonnee + correcteur ].setType(b.getTypeBateau());
 					nombreCaseBateau();
 				}else {
-					
+
 					if(caseGrille[abcisse + correcteur +y][ordonnee + correcteur].getType() != -1) {
 						obstacle += 1;
 						System.out.println("Taille obstacle : " + obstacle);		
@@ -355,7 +355,7 @@ public class Grille extends JPanel {
 			}
 			tailleBateau = 0;
 		}				
-		
+
 		if(obstacle != 0 ) {
 			System.out.println("sbeul");
 			tailleBateau = b.getLongueurBateau();
@@ -377,7 +377,7 @@ public class Grille extends JPanel {
 					caseGrille[abcisse + correcteur - y][ordonnee + correcteur].setType(b.getTypeBateau());
 					nombreCaseBateau();
 				}else {
-					
+
 					if(caseGrille[abcisse + correcteur -y][ordonnee + correcteur ].getType() != -1) {
 						obstacle += 1;
 						System.out.println("Taille obstacle : " + obstacle);		
@@ -386,7 +386,7 @@ public class Grille extends JPanel {
 			}
 			tailleBateau = 0;
 		}				
-		
+
 		if(obstacle != 0 ) {
 			System.out.println("sbeul");
 			tailleBateau = b.getLongueurBateau();
@@ -407,7 +407,11 @@ public class Grille extends JPanel {
 			casePorteAvion += 1;
 		break;
 
-		case (-4):
+		case (-41):
+			caseCroiseur += 1;
+		break;
+		
+		case (-42):
 			caseCroiseur += 1;
 		break;
 
@@ -473,7 +477,14 @@ public class Grille extends JPanel {
 
 		break;
 
-		case (-4):
+		case (-41):
+			((Case) e.getSource()).setBackground(Color.RED);
+		((Case) e.getSource()).setType(0);
+		caseCroiseur -= 1;
+		tir = 0;
+		break;
+		
+		case (-42):
 			((Case) e.getSource()).setBackground(Color.RED);
 		((Case) e.getSource()).setType(0);
 		caseCroiseur -= 1;

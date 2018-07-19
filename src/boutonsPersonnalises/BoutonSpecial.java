@@ -8,25 +8,25 @@ public class BoutonSpecial extends JButton{
 
 	private int id;
 	private String nom;
-	
+
 	public BoutonSpecial(String nom, int id) {
 		this.nom = nom;
 		this.id = id;
-		
+
 		switch(id) {
-			case(1):
-				this.setText("Commencer");
+		case(1):
+			this.setText("Placer les bateaux");
 			break;
-			
-			case(2):
-				this.setText("Terminer Placement ");
-			break;
-			
-			case(3): 
-				this.setText("Fin de Tour");
-			break;
-			}
+
+		case(2):
+			this.setText("Terminer Placement ");
+		break;
+
+		case(3): 
+			this.setText("Fin de Tour");
+		break;
 		}
+	}
 
 	public int getId() {
 		return id;
@@ -35,4 +35,4 @@ public class BoutonSpecial extends JButton{
 	public void setId(int id) {
 		this.id = id;
 	}
-	}
+}
