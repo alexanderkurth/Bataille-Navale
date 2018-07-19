@@ -281,53 +281,72 @@ public class Grille extends JPanel {
 					caseGrille[abcisse + correcteur][ordonnee + correcteur + y].setType(b.getTypeBateau());
 					nombreCaseBateau();
 				}else {
-					caseGrille[abcisse + correcteur][ordonnee + correcteur ].setBackground(Color.RED);
-					caseGrille[abcisse + correcteur][ordonnee + correcteur ].setType(-1);
-
+					
 					if(caseGrille[abcisse + correcteur][ordonnee + correcteur + y].getType() != -1) {
 						obstacle += 1;
 						System.out.println("Taille obstacle : " + obstacle);		
 					}
 				}	
 			}
-			
-			if(obstacle == 1 ) {
-				for (int z = 0; z < tailleBateau; z++) {
-				caseGrille[abcisse + correcteur][ordonnee + correcteur + z+ (obstacle+1)].setBackground(Color.CYAN);
-				caseGrille[abcisse + correcteur][ordonnee + correcteur + z + (obstacle+1)].setType(b.getTypeBateau());
-				nombreCaseBateau();						
-				}
-			}
-			else {
-				while(caseGrille[abcisse + correcteur][ordonnee + correcteur + x].getType() != -1){
-					x++;
-					System.out.println("Taille x :" + x);
-				}
-				
-				if(obstacle > 1 &&  x >1) {
-					System.out.println("sbeul");
-					
-					for(int w=0; w<tailleBateau; w++){
-						caseGrille[abcisse + correcteur][ordonnee + correcteur + w + (x)].setBackground(Color.YELLOW);
-						caseGrille[abcisse + correcteur][ordonnee + correcteur + w + (x)].setType(b.getTypeBateau());
-						nombreCaseBateau();
-					}
-					
-					
-					/*
-					for (int w = 0; w < tailleBateau; w++) {
-					caseGrille[abcisse + correcteur][ordonnee + correcteur + w + (obstacle+1)].setBackground(Color.BLACK);
-					caseGrille[abcisse + correcteur][ordonnee + correcteur + w + (obstacle+1)].setType(b.getTypeBateau());
-					nombreCaseBateau();						
-					}
-					*/
-				}
-			}
-			
-			
 			tailleBateau = 0;
-			obstacle =0;
-		}				
+		}
+		
+		if(obstacle != 0 ) {
+			System.out.println("sbeul");
+			tailleBateau = b.getLongueurBateau();
+			caseGrille[abcisse + correcteur][ordonnee + correcteur ].setBackground(Color.RED);
+			for (int w = 0; w < tailleBateau; w++) {
+				if(caseGrille[abcisse + correcteur][ordonnee + correcteur + w].getType() == b.getTypeBateau()) {
+					caseGrille[abcisse + correcteur][ordonnee + correcteur + w].setBackground(Color.RED);
+					caseGrille[abcisse + correcteur][ordonnee + correcteur + w].setType(-1);
+				}
+			}
+			
+			
+		}/*
+			tailleBateau = b.getLongueurBateau();
+			
+			for (int w = 0; w < tailleBateau; w++) {
+				if(caseGrille[abcisse + correcteur][ordonnee + correcteur + w].getType() == -1) {
+					caseGrille[abcisse + correcteur][ordonnee + correcteur + w].setBackground(Color.CYAN);
+					caseGrille[abcisse + correcteur][ordonnee + correcteur + w].setType(-1);
+				}
+
+			}
+			
+			/*
+			for (int z = 0; z < tailleBateau; z++) {
+			caseGrille[abcisse + correcteur][ordonnee + correcteur + z+ (obstacle+1)].setBackground(Color.CYAN);
+			caseGrille[abcisse + correcteur][ordonnee + correcteur + z + (obstacle+1)].setType(b.getTypeBateau());
+			nombreCaseBateau();						
+			}*/
+		//}
+		/*
+		else {
+			while(caseGrille[abcisse + correcteur][ordonnee + correcteur + x].getType() != -1){
+				x++;
+				System.out.println("Taille x :" + x);
+			}
+			
+			if(obstacle > 1 &&  x >1) {
+				System.out.println("sbeul");
+				
+				for(int w=0; w<tailleBateau; w++){
+					caseGrille[abcisse + correcteur][ordonnee + correcteur +x+w].setBackground(Color.YELLOW);
+					caseGrille[abcisse + correcteur][ordonnee + correcteur + x+w].setType(b.getTypeBateau());
+					nombreCaseBateau();
+				}
+			}
+			
+			if(obstacle ==2  &&  x >2) {
+				System.out.println("kamoulox");
+			}
+			
+			if(obstacle == 1 && x>2) {
+				System.out.println("chaussette");
+			}
+		}*/
+		obstacle =0;
 	}
 
 	public void bateauHorizontalGauche() {
