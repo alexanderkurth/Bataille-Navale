@@ -16,6 +16,8 @@ import joueur.Joueur;
 
 
 public class MainJeuBatailleNavale extends JFrame{
+	
+	private int verif;
 
 	//Jpanel
 	private JPanel centre;
@@ -33,10 +35,6 @@ public class MainJeuBatailleNavale extends JFrame{
 	//Grille
 	private Grille grilleJoueur1 ;
 	private Grille grilleJoueur2 ;
-
-	//Joueur
-	private Joueur joueur1 ;//= new Joueur("Carlos",grilleJoueur1,1);
-	private Joueur joueur2 ;//= new Joueur("Kukuss",grilleJoueur2,2);
 
 
 	// --------------------------------------------------Debut Constructeur-
@@ -65,9 +63,8 @@ public class MainJeuBatailleNavale extends JFrame{
 				if(placement) {
 					if(joueur == 0) {
 
+					//	nomJoueur.setText(joueur1.getNomJoueur() +" places ces bateaux");
 
-						revalidate();
-						repaint();
 						centre.add(joueur1.getGrilleJoueur());
 						joueur1.getGrilleJoueur().gestionJeu(e);
 
@@ -85,12 +82,8 @@ public class MainJeuBatailleNavale extends JFrame{
 
 					}
 
-					if(joueur1.getGrilleJoueur().getTotalCaseBateau() == joueur2.getGrilleJoueur().getTotalCaseBateau()) {
+					if(joueur1.getGrilleJoueur().getTotalCaseBateau() == 18 && joueur2.getGrilleJoueur().getTotalCaseBateau() == 18) {
 						placement= false;
-						System.out.println(placement);
-
-						//nomJoueur.setText(joueur2.getNomJoueur() +" attaque");
-
 					}
 
 				}else {
@@ -101,7 +94,9 @@ public class MainJeuBatailleNavale extends JFrame{
 						revalidate();
 						repaint();
 
-						//nomJoueur.setText(joueur2.getNomJoueur() +" attaque");
+						nomJoueur.setText(joueur2.getNomJoueur() +" attaque");
+						revalidate();
+						repaint();
 						nombreTours++;
 
 						centre.add(joueur1.getGrilleJoueur());
@@ -115,7 +110,9 @@ public class MainJeuBatailleNavale extends JFrame{
 						revalidate();
 						repaint();
 
-						//nomJoueur.setText(joueur1.getNomJoueur() +" attaque");
+						nomJoueur.setText(joueur1.getNomJoueur() +" attaque");
+						revalidate();
+						repaint();
 						nombreTours++;
 
 						centre.add(joueur2.getGrilleJoueur());
