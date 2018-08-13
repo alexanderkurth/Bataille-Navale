@@ -32,7 +32,7 @@ public class BoutonSpecial extends JButton{
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setTypeTexte(int id) {
 		this.id = id;
 	}
 }
