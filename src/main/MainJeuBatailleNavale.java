@@ -78,8 +78,6 @@ public class MainJeuBatailleNavale extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				System.out.println("pair : " +tourJoueur1);
-				//System.out.println(joueur1.getGrilleJoueur().getTotalCaseBateau());
-				//System.out.println("tour : " +tour);
 				
 				if(placement) {
 					
@@ -114,7 +112,9 @@ public class MainJeuBatailleNavale extends JFrame{
 						
 						nomJoueur.setText(joueur1.getNomJoueur() + " Attaque");
 						
-						remove(joueur1.getGrilleJoueur());
+						centre.remove(joueur1.getGrilleJoueur());
+						revalidate();
+						repaint();
 						
 						centre.add(joueur2.getGrilleJoueur());
 						revalidate();
@@ -128,7 +128,9 @@ public class MainJeuBatailleNavale extends JFrame{
 						
 						nomJoueur.setText(joueur2.getNomJoueur() + " Attaque");
 						
-						remove(joueur2.getGrilleJoueur());
+						centre.remove(joueur2.getGrilleJoueur());
+						revalidate();
+						repaint();
 						
 						centre.add(joueur1.getGrilleJoueur());
 						revalidate();
@@ -144,84 +146,6 @@ public class MainJeuBatailleNavale extends JFrame{
 				
 				nombreTours +=1;
 				
-				/*
-				if(placement) {
-					if(estPair) {
-
-						nomJoueur.setText(joueur1.getNomJoueur() +" place ses bateaux");
-						repaint();
-
-						remove(joueur1.getGrilleJoueur());
-						revalidate();
-						repaint();
-						
-						centre.add(joueur1.getGrilleJoueur());
-						revalidate();
-						repaint();
-						
-						joueur1.getGrilleJoueur().gestionJeu(e);
-
-						estPair=false;
-					}else {
-
-						nomJoueur.setText(joueur2.getNomJoueur() +" place ses bateaux");
-						repaint();
-
-						remove(joueur1.getGrilleJoueur());
-						revalidate();
-						repaint();
-						
-						centre.add(joueur2.getGrilleJoueur());
-						revalidate();
-						repaint();
-						
-						joueur2.getGrilleJoueur().gestionJeu(e);
-						
-						estPair = true;
-
-					}
-
-					if(joueur1.getGrilleJoueur().getTotalCaseBateau() == 18 && joueur2.getGrilleJoueur().getTotalCaseBateau() == 18) {
-						placement= false;
-					}
-
-				}else {
-					System.out.println(nombreTours);
-					if(estPair) {
-
-						remove(joueur2.getGrilleJoueur());
-						revalidate();
-						repaint();
-
-						nomJoueur.setText(joueur2.getNomJoueur() +" attaque");
-						revalidate();
-						repaint();qzdsdz 
-						nombreTours++;
-
-						centre.add(joueur1.getGrilleJoueur());
-						joueur1.getGrilleJoueur().gestionJeu(e);
-						
-						estPair=false;
-
-						
-					}else {
-						
-
-						remove(joueur1.getGrilleJoueur());
-						revalidate();
-						repaint();
-
-						nomJoueur.setText(joueur1.getNomJoueur() +" attaque");
-						revalidate();
-						repaint();
-						nombreTours++;
-
-						centre.add(joueur2.getGrilleJoueur());
-						joueur2.getGrilleJoueur().gestionJeu(e);
-						
-						estPair=true;
-					}
-				}*/
 			}
 		});
 
