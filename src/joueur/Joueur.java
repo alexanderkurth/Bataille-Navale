@@ -14,7 +14,7 @@ public class Joueur {
 
 	public Joueur(String nom, Grille g, int x) {
 		this.nomJoueur = nom;
-		this.grilleJoueur = new Grille(11,11);
+		this.grilleJoueur = new Grille(12,12);
 		this.numeroJoueur = x;
 	}
 	

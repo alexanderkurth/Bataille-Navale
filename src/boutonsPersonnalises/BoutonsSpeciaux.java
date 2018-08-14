@@ -33,6 +33,10 @@ public class BoutonsSpeciaux extends JRadioButton{
 		case 4: 
 			this.setText("Torpilleur");
 			break;
+			
+		case 5: 
+			this.setText("Grille à 11 cases");
+			break;
 		}
 	}
 

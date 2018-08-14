@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 
+import fenetres.FenetreParametres;
 import interfaceUtilisateur.InterfaceMultiJoueur;
 import interfaceUtilisateur.InterfaceRegles;
 import interfaceUtilisateur.InterfaceSolo;
@@ -58,6 +59,7 @@ public class BoutonMenu extends JButton{
 				
 				case(4):
 					System.out.println("4");
+				new FenetreParametres("Parametres",200,300);
 				break;
 				
 				case(5):
