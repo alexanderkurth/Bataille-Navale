@@ -17,7 +17,7 @@ import javax.swing.SwingUtilities;
 import fenetres.FenetreAmelioree;
 import grilleMultiJoueur.Grille;
 import joueur.Joueur;
-import main.MainJeuBatailleNavale;
+import main.MainJeuBatailleNavaleMultiJoueurs;
 
 /**
  * @author KURTH Alexander
@@ -84,7 +84,7 @@ public class InterfaceMultiJoueur extends FenetreAmelioree{
 	}
 	
 	public void Jouer() {
-		new MainJeuBatailleNavale(joueur1,joueur2);
+		new MainJeuBatailleNavaleMultiJoueurs(joueur1,joueur2);
 	}
 	
 	public void exit() {

@@ -13,6 +13,10 @@ public class Bateau {
 		this.longueurBateau = longueurBateau;
 	}
 	
+	public void setTypeBateau(int typeBateau) {
+		this.typeBateau = typeBateau;
+	}
+
 	public int getLongueurBateau() {
 		return longueurBateau;
 	}

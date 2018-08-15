@@ -15,7 +15,7 @@ import interfaceUtilisateur.InterfacePrincipale;
 import joueur.Joueur;
 
 
-public class MainJeuBatailleNavale extends JFrame{
+public class MainJeuBatailleNavaleMultiJoueurs extends JFrame{
 	
 	private int verif;
 
@@ -38,7 +38,7 @@ public class MainJeuBatailleNavale extends JFrame{
 
 
 	// --------------------------------------------------Debut Constructeur-
-	public MainJeuBatailleNavale(Joueur joueur1, Joueur joueur2){
+	public MainJeuBatailleNavaleMultiJoueurs(Joueur joueur1, Joueur joueur2){
 		this.nomJoueur = new JLabel("");
 
 

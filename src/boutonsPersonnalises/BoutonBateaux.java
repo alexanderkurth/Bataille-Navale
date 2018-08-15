@@ -1,4 +1,4 @@
-package grilleMultiJoueur;
+package boutonsPersonnalises;
 
 import java.awt.GridLayout;
 import javax.swing.JButton;

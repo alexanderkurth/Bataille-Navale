@@ -4,34 +4,23 @@
 package ia;
 
 import grilleMultiJoueur.Grille;
+import grilleSolo.GrilleSolo;
 
 /**
  * @author KURTH Alexander
  *
  */
 public class IaData {
-
-	private Grille grilleIa;
-	private int numeroIa;
 	
-	public IaData(Grille grille, int x) {
-		this.grilleIa = grille;
-		this.numeroIa = x;
+	private GrilleIa g;
+	
+	public IaData(GrilleIa g) {
+		this.g= new GrilleIa(12,12);
 	}
 
-	public Grille getGrilleIa() {
-		return grilleIa;
+	public GrilleIa getG() {
+		return g;
 	}
-
-	public void setGrilleIa(Grille grilleIa) {
-		this.grilleIa = grilleIa;
-	}
-
-	public int getNumeroIa() {
-		return numeroIa;
-	}
-
-	public void setNumeroIa(int numeroIa) {
-		this.numeroIa = numeroIa;
-	}
+	
+	
 }

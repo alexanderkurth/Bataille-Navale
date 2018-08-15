@@ -19,7 +19,6 @@ import bateauxBatailleNavale.BateauSousMarin;
 import bateauxBatailleNavale.Torpilleur;
 import boutonsPersonnalises.BoutonSpecial;
 import boutonsPersonnalises.BoutonsSpeciaux;
-import ia.IaData;
 import joueur.Joueur;
 
 /**
@@ -29,18 +28,6 @@ import joueur.Joueur;
 public class Grille extends JPanel {
 
 	private int obstacle =0;
-	private int x=0;
-
-	private boolean check;
-
-	private Random rand = new Random();
-	//-----------------------------------------------------------Ia
-	private IaData ia;
-
-	private int nombreBateauxIa = 5;
-
-	// -----------------------------------------------------------Joueur
-	private Joueur joueur;
 
 	// ------------------------------------------------------------Utilitaire
 	private int correcteur = 1;
@@ -60,8 +47,6 @@ public class Grille extends JPanel {
 	private BoutonsSpeciaux JRBCroiseur2;
 	private BoutonsSpeciaux JRBSousMarin;
 	private BoutonsSpeciaux JRBTorpilleur;
-
-	private BoutonSpecial JBTerminer;
 
 	// ------------------------------------------------------------- Grille
 
@@ -150,21 +135,12 @@ public class Grille extends JPanel {
 				verif += 1;
 			}
 		});
-		/*
-		this.JBTerminer = new BoutonSpecial("Terminer", 1);
-		JBTerminer.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				gestionJeu(e);
-			}
-		});
-		 */
+
 		this.colonne.add(JRBPorteAvion);
 		this.colonne.add(JRBCroiseur);
 		this.colonne.add(JRBCroiseur2);
 		this.colonne.add(JRBSousMarin);
 		this.colonne.add(JRBTorpilleur);
-		//this.colonne.add(JBTerminer);
 		this.add(colonne);
 
 		// ------------------------------------------------------------- Grille
@@ -254,23 +230,6 @@ public class Grille extends JPanel {
 
 	}
 
-	//---------------------------------------Placement Bateaux IA
-	public int randX() {
-		int randomX = 1 + (int)(Math.random() * ((nombreLigne - 1) + 1));
-		return randomX;
-	}
-
-	public int randY() {
-		int randomY = 1 + (int)(Math.random() * ((nombreColonne - 1) + 1));
-		return randomY;
-	}
-
-
-	private void placerBateauIa() {
-		if(randX() > 0 && randY() > 0) {
-
-		}
-	}
 
 	// -------------------------------------------------GestionPlacementBateau
 	public void bateauHorizontalDroite() {
