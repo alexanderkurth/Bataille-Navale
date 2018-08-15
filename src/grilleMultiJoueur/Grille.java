@@ -1,4 +1,4 @@
-package fenetreGrille;
+package grilleMultiJoueur;
 
 import java.awt.Color;
 import java.awt.GridLayout;

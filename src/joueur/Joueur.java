@@ -1,6 +1,6 @@
 package joueur;
 
-import fenetreGrille.Grille;
+import grilleMultiJoueur.Grille;
 
 /**
  * @author KURTH Alexander

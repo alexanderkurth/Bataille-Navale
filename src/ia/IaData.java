@@ -3,7 +3,7 @@
  */
 package ia;
 
-import fenetreGrille.Grille;
+import grilleMultiJoueur.Grille;
 
 /**
  * @author KURTH Alexander

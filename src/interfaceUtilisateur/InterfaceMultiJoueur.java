@@ -14,8 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import fenetreGrille.Grille;
 import fenetres.FenetreAmelioree;
+import grilleMultiJoueur.Grille;
 import joueur.Joueur;
 import main.MainJeuBatailleNavale;
 

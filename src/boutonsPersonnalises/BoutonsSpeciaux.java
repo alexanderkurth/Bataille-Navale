@@ -37,7 +37,22 @@ public class BoutonsSpeciaux extends JRadioButton{
 		case 5: 
 			this.setText("Grille à 11 cases");
 			break;
+			
+		case 6: 
+			this.setText("Grille à 9 cases");
+			break;
 		}
+		
+		this.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(id>4)
+					
+				System.out.println(id);				
+			}
+			
+		});
 	}
 
 	public int getId() {

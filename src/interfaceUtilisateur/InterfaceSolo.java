@@ -22,7 +22,7 @@ public class InterfaceSolo extends FenetreAmelioree{
 	 * @param height
 	 */
 	public InterfaceSolo(String nom, int width, int height) {
-		super("Solo", 1200, 700);
+		super("Solo", 1350, 850);
 	}
 
 }

@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import boutonsPersonnalises.BoutonSpecial;
-import fenetreGrille.Grille;
+import grilleMultiJoueur.Grille;
 import interfaceUtilisateur.InterfacePrincipale;
 import joueur.Joueur;
 
@@ -155,7 +155,7 @@ public class MainJeuBatailleNavale extends JFrame{
 
 		//parametres de la fenetre
 		this.setTitle("Bataille Navale 54");
-		this.setSize(1200,700);
+		this.setSize(1200,750);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 
