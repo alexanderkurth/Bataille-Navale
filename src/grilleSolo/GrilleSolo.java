@@ -24,6 +24,10 @@ public class GrilleSolo  extends JPanel {
 	
 	// ------------------------------------------------------------Utilitaire
 	
+	private int CoordLigne;
+	private int CoordColonne;
+	
+	
 	private int numeroTour = 1;
 	
 	private int obstacle =0;
@@ -66,6 +70,14 @@ public class GrilleSolo  extends JPanel {
 	private BoutonsSpeciaux JRBCroiseur2;
 	private BoutonsSpeciaux JRBSousMarin;
 	private BoutonsSpeciaux JRBTorpilleur;
+
+	private int randomLigne;
+
+	private int randomColonne;
+
+	private int Ligne;
+
+	private int Colonne;
 	
 	
 	
@@ -159,17 +171,7 @@ public class GrilleSolo  extends JPanel {
 				total.add(caseGrilleSolo[i][j]);
 
 				if (i > 0 && j > 0) {
-					this.caseGrilleSolo[i][j].setBackground(Color.white);
-					
-					this.caseGrilleSolo[i][j].addActionListener(new ActionListener() {
-						@Override
-						public void actionPerformed(ActionEvent e) {
-							if (estTermine && tir == 1) {
-								gestionTirBateau(e);
-							}
-						}
-					});
-					
+					this.caseGrilleSolo[i][j].setBackground(Color.white);					
 				}
 
 				if (i == 0 && j == 0) {
@@ -398,68 +400,77 @@ public class GrilleSolo  extends JPanel {
 
 			if (estTermine) {
 				tousCoules();
-				if (tir == 0) {
-					numeroTour += 1;
-					tir = 1;
-				} else {
-					((AbstractButton) e.getSource()).setText("Vous devez tirer");
-				}
+					if(tir == 1) {
+						gestionTirBateau();
+					}
+					
 			}
 		}
 		
+		public int getTir() {
+			return tir;
+		}
+
+		public void setTir(int tir) {
+			this.tir = tir;
+		}
+
+		//--------------------------------------Random
+		public int randomLigne(int Min,int Max) {
+			randomLigne = Min + (int)(Math.random() * ((Max - Min) + 1))	;	
+			System.out.println("random ligne : " + randomLigne);
+			return randomLigne;
+		}
+
+		public int randomColonne(int Min,int Max) {
+			randomColonne = Min + (int)(Math.random() * ((Max - Min) + 1))	;	
+			System.out.println("random Colonne : " + randomColonne);
+			return randomColonne;
+		}	
+		
 		// ------------------------------------------Gestion Tir
-		public void gestionTirBateau(ActionEvent e) {
-			switch (((Case) e.getSource()).getType()) {
-
-			case (0):
-				tir = 1;
-			System.out.println("Case Deja Jouée");
-			break;
-
-			case (-1):
-				((Case) e.getSource()).setBackground(Color.BLACK);
-			((Case) e.getSource()).setType(0);
-			tir = 0;
-			break;
-
-			case (-2):
-				((Case) e.getSource()).setBackground(Color.RED);
-			((Case) e.getSource()).setType(0);
-			caseTorpilleur -= 1;
-			tir = 0;
-			break;
-
-			case (-3):
-				((Case) e.getSource()).setBackground(Color.RED);
-			((Case) e.getSource()).setType(0);
-			caseSousMarin -= 1;
-			tir = 0;
-
+		public void gestionTirBateau() {
+			
+			Ligne = randomLigne(0,nombreLigne-2);
+			Colonne = randomColonne(0,nombreColonne-2);
+			
+			switch (caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].getType() ) {
+			case (-5):
+				caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setType(0);
+				caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setBackground(Color.CYAN);
 			break;
 
 			case (-41):
-				((Case) e.getSource()).setBackground(Color.RED);
-			((Case) e.getSource()).setType(0);
-			caseCroiseur -= 1;
-			tir = 0;
+				caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setType(0);
+			caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setBackground(Color.CYAN);
+			break;
+
+			case (-42):
+				caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setType(0);
+			caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setBackground(Color.CYAN);
+			break;
+
+			case (-3):
+				caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setType(0);
+			caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setBackground(Color.CYAN);
+			break;
+
+			case (-2):
+				caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setType(0);
+			caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setBackground(Color.CYAN);
 			break;
 			
-			case (-42):
-				((Case) e.getSource()).setBackground(Color.RED);
-			((Case) e.getSource()).setType(0);
-			caseCroiseur -= 1;
-			tir = 0;
+			case (-1):
+				caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setType(0);
+				caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setBackground(Color.GREEN);
 			break;
-
-			case (-5):
-				((Case) e.getSource()).setBackground(Color.RED);
-			((Case) e.getSource()).setType(0);
-			casePorteAvion -= 1;
-			tir = 0;
+			
+			default :
 			break;
-
 			}
+
 		}
+		
 
 		public void tousCoules() {
 			if (casePorteAvion == 0 && caseCroiseur == 0 && caseSousMarin == 0 && caseTorpilleur == 0) {
@@ -474,6 +485,11 @@ public class GrilleSolo  extends JPanel {
 					caseGrilleSolo[i][j].setBackground(Color.BLUE);
 				}
 			}
+		}
+		
+		public int getTotalCaseBateau() {
+			int x= this.caseCroiseur+this.casePorteAvion+this.caseSousMarin+this.caseTorpilleur;	
+			return x;
 		}
 
 }
