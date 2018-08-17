@@ -13,6 +13,7 @@ import bateauxBatailleNavale.BateauCroiseur2;
 import bateauxBatailleNavale.BateauPorteAvion;
 import bateauxBatailleNavale.BateauSousMarin;
 import bateauxBatailleNavale.Torpilleur;
+import fenetres.FenetreVictoire;
 import grilleSolo.CaseGrille;
 
 
@@ -410,6 +411,7 @@ public class GrilleIa  extends JPanel {
 	public void tousCoules() {
 		if (casePorteAvion == 0 && caseCroiseur == 0 && caseSousMarin == 0 && caseTorpilleur == 0) {
 			System.out.println("Victoire");
+			new FenetreVictoire("Victoire", 650, 350);
 		}
 	}
 
