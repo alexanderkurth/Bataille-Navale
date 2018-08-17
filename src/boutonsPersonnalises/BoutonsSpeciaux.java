@@ -2,19 +2,13 @@ package boutonsPersonnalises;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JRadioButton;
-
-import bateauxBatailleNavale.Bateau;
-import bateauxBatailleNavale.BateauPorteAvion;
 
 public class BoutonsSpeciaux extends JRadioButton{
 	
-	private String nom;
 	private int id;
 
-	public BoutonsSpeciaux(String nom, int id) { 
-		this.nom = nom;
+	public BoutonsSpeciaux(int id) { 
 		this.id = id;
 		
 		switch(id) {
@@ -53,9 +47,5 @@ public class BoutonsSpeciaux extends JRadioButton{
 			}
 			
 		});
-	}
-
-	public int getId() {
-		return id;
 	}	
 }

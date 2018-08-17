@@ -1,16 +1,12 @@
 package boutonsPersonnalises;
 
-import java.awt.Dimension;
-
 import javax.swing.JButton;
 
 public class BoutonSpecial extends JButton{
 
 	private int id;
-	private String nom;
 
-	public BoutonSpecial(String nom, int id) {
-		this.nom = nom;
+	public BoutonSpecial( int id) {
 		this.id = id;
 
 		switch(id) {
@@ -26,13 +22,5 @@ public class BoutonSpecial extends JButton{
 			this.setText("Fin de Tour");
 		break;
 		}
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setTypeTexte(int id) {
-		this.id = id;
 	}
 }

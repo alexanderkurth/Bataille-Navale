@@ -22,8 +22,8 @@ public class FenetreParametres extends FenetreAmelioree{
 	public FenetreParametres(String nom, int width, int height) {
 		super(nom, width, height);
 		
-		this.grille11 = new BoutonsSpeciaux("11",5);
-		this.grille9 = new BoutonsSpeciaux("11",6);
+		this.grille11 = new BoutonsSpeciaux(5);
+		this.grille9 = new BoutonsSpeciaux(6);
 		
 		this.setLayout(new BorderLayout());
 		this.add(texteHaut, BorderLayout.NORTH);

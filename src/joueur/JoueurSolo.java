@@ -1,10 +1,9 @@
 package joueur;
 
-import grilleMultiJoueur.Grille;
 import grilleSolo.GrilleSolo;
 
 public class JoueurSolo{
-	
+
 	private GrilleSolo g;
 	private String nomJoueur;
 
@@ -24,6 +23,6 @@ public class JoueurSolo{
 	public String getNomJoueur() {
 		return nomJoueur;
 	}
-	
+
 
 }

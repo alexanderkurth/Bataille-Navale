@@ -72,10 +72,6 @@ public class BoutonMenu extends JButton{
 		});
 	}
 	
-	public int getId() {
-		return id;
-	}
-	
 	public void exit() {
 		SwingUtilities.windowForComponent(this).dispose();
 	}

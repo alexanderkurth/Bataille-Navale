@@ -17,8 +17,8 @@ public class Joueur {
 		this.grilleJoueur = new Grille(12,12);
 		this.numeroJoueur = x;
 	}
-	
-	
+
+
 	public Grille getGrilleJoueur() {
 		return grilleJoueur;
 	}
@@ -34,7 +34,7 @@ public class Joueur {
 	public int getNumeroJoueur() {
 		return numeroJoueur;
 	}
-	
+
 	public void setNomJoueur(String nomJoueur) {
 		this.nomJoueur = nomJoueur;
 	}	

@@ -13,14 +13,12 @@ import bateauxBatailleNavale.BateauCroiseur2;
 import bateauxBatailleNavale.BateauPorteAvion;
 import bateauxBatailleNavale.BateauSousMarin;
 import bateauxBatailleNavale.Torpilleur;
-import grilleMultiJoueur.Case;
 import grilleSolo.CaseGrille;
 
 
 public class GrilleIa  extends JPanel {
 
 	private int estVertical;
-	private int position;
 
 	private int randomColonne;
 	private int randomLigne;
@@ -309,7 +307,7 @@ public class GrilleIa  extends JPanel {
 		}				
 
 	}
-	
+
 	public void nombreCaseBateau() {
 		switch (b.getTypeBateau()) {
 		case (-5):
@@ -391,7 +389,7 @@ public class GrilleIa  extends JPanel {
 		caseCroiseur -= 1;
 		tir = 0;
 		break;
-		
+
 		case (-42):
 			((CaseGrille) e.getSource()).setBackground(Color.RED);
 		((CaseGrille) e.getSource()).setType(0);

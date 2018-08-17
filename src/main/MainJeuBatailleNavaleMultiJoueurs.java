@@ -11,12 +11,11 @@ import javax.swing.JPanel;
 
 import boutonsPersonnalises.BoutonSpecial;
 import grilleMultiJoueur.Grille;
-import interfaceUtilisateur.InterfacePrincipale;
 import joueur.Joueur;
 
 
 public class MainJeuBatailleNavaleMultiJoueurs extends JFrame{
-	
+
 	private int verif;
 
 	//Jpanel
@@ -42,7 +41,7 @@ public class MainJeuBatailleNavaleMultiJoueurs extends JFrame{
 		this.nomJoueur = new JLabel("");
 
 
-		this.changementTour = new BoutonSpecial("bouton",1);
+		this.changementTour = new BoutonSpecial(1);
 		//Taille du bouton changement Tour
 		Dimension d = new Dimension(250,100);
 		changementTour.setPreferredSize(d);
@@ -67,85 +66,85 @@ public class MainJeuBatailleNavaleMultiJoueurs extends JFrame{
 		this.droite.add(intermediaire);
 
 		//centre.add(joueur1.getGrilleJoueur());
-		
+
 		centre.add(joueur1.getGrilleJoueur());
 		nomJoueur.setText(joueur1.getNomJoueur() + " place ses bateaux");
-		
 
-		
+
+
 		this.changementTour.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				System.out.println("pair : " +tourJoueur1);
-				
+
 				if(placement) {
-					
+
 					if (joueur1.getGrilleJoueur().getTotalCaseBateau() >= 18) {
 						tourJoueur1 = false;
-						
+
 					}
-					
+
 					if( !tourJoueur1) {
-					
-						
+
+
 						nomJoueur.setText(joueur2.getNomJoueur() + " place ses bateaux");
-						
+
 						centre.remove(joueur1.getGrilleJoueur());
-						
+
 						centre.add(joueur2.getGrilleJoueur());
 						revalidate();
 						repaint();
-						
+
 						if (joueur2.getGrilleJoueur().getTotalCaseBateau() >= 18) {
 							tourJoueur1 = false;
 							placement = false;
 						}
-						
+
 					}
-					
+
 				}else {
-					
+
 					changementTour.setText("Fin de Tour");
 
 					if(nombreTours%2 == 0) {
-						
+
 						nomJoueur.setText(joueur1.getNomJoueur() + " Attaque");
-						
+
 						centre.remove(joueur1.getGrilleJoueur());
 						revalidate();
 						repaint();
-						
+
 						centre.add(joueur2.getGrilleJoueur());
 						revalidate();
 						repaint();
-						
+
 						joueur2.getGrilleJoueur().gestionJeu(e);
-						
+
 					}
-					
+
 					if(nombreTours%2 != 0){
-						
+
 						nomJoueur.setText(joueur2.getNomJoueur() + " Attaque");
-						
+
 						centre.remove(joueur2.getGrilleJoueur());
 						revalidate();
 						repaint();
-						
+
 						centre.add(joueur1.getGrilleJoueur());
 						revalidate();
 						repaint();
-						
+
 						joueur1.getGrilleJoueur().gestionJeu(e);
-						
+
 					}
-					
+
 
 					System.out.println(nombreTours);
 				}
-				
+
 				nombreTours +=1;
-				
+
 			}
 		});
 

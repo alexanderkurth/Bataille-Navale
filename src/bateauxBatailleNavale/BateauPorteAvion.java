@@ -3,6 +3,6 @@
 public class BateauPorteAvion extends Bateau{
 	
 	public BateauPorteAvion() {
-		super("PorteAvion",-5,5);	//nom,type,longeur;
+		super("PorteAvion",-5,5);	
 	}
 }

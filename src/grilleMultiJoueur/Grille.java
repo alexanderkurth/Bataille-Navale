@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Random;
 
 import javax.swing.AbstractButton;
 import javax.swing.JPanel;
@@ -17,9 +16,7 @@ import bateauxBatailleNavale.BateauCroiseur2;
 import bateauxBatailleNavale.BateauPorteAvion;
 import bateauxBatailleNavale.BateauSousMarin;
 import bateauxBatailleNavale.Torpilleur;
-import boutonsPersonnalises.BoutonSpecial;
 import boutonsPersonnalises.BoutonsSpeciaux;
-import joueur.Joueur;
 
 /**
  * @author KURTH Alexander
@@ -81,7 +78,7 @@ public class Grille extends JPanel {
 		this.colonne.setLayout(new GridLayout(6, 0));
 
 		// -------------------------------------------------------------Action Listener
-		this.JRBPorteAvion = new BoutonsSpeciaux("Porte Avion", 1);
+		this.JRBPorteAvion = new BoutonsSpeciaux(1);
 		JRBPorteAvion.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -92,7 +89,7 @@ public class Grille extends JPanel {
 			}
 		});
 
-		this.JRBCroiseur = new BoutonsSpeciaux("Croiseur", 2);
+		this.JRBCroiseur = new BoutonsSpeciaux(2);
 		JRBCroiseur.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -103,7 +100,7 @@ public class Grille extends JPanel {
 			}
 		});
 
-		this.JRBCroiseur2 = new BoutonsSpeciaux("Croiseur", 2);
+		this.JRBCroiseur2 = new BoutonsSpeciaux(2);
 		JRBCroiseur2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -114,7 +111,7 @@ public class Grille extends JPanel {
 			}
 		});
 
-		this.JRBSousMarin = new BoutonsSpeciaux("Sous Marin", 3);
+		this.JRBSousMarin = new BoutonsSpeciaux(3);
 		JRBSousMarin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -125,7 +122,7 @@ public class Grille extends JPanel {
 			}
 		});
 
-		this.JRBTorpilleur = new BoutonsSpeciaux("Torpilleur", 4);
+		this.JRBTorpilleur = new BoutonsSpeciaux(4);
 		JRBTorpilleur.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -369,7 +366,7 @@ public class Grille extends JPanel {
 		case (-41):
 			caseCroiseur += 1;
 		break;
-		
+
 		case (-42):
 			caseCroiseur += 1;
 		break;
@@ -442,7 +439,7 @@ public class Grille extends JPanel {
 		caseCroiseur -= 1;
 		tir = 0;
 		break;
-		
+
 		case (-42):
 			((Case) e.getSource()).setBackground(Color.RED);
 		((Case) e.getSource()).setType(0);
