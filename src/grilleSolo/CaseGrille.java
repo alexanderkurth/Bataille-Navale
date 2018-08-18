@@ -27,6 +27,8 @@ public class CaseGrille extends JButton{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 					System.out.println("Type : " + getType());
+					System.out.println("Abcisse : " + getAbcisse());
+					System.out.println("Ordonne : " + getOrdone());
 			}
 
 

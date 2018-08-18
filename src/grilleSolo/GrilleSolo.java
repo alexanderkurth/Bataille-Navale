@@ -192,6 +192,9 @@ public class GrilleSolo  extends JPanel {
 				this.add(total);
 			}
 		}
+		
+		System.out.println(nombreColonne);
+		System.out.println(nombreLigne);
 
 	}
 
@@ -222,7 +225,6 @@ public class GrilleSolo  extends JPanel {
 				}
 			});
 		}
-
 	}
 
 
@@ -425,41 +427,61 @@ public class GrilleSolo  extends JPanel {
 
 		Ligne = randomLigne(0,nombreLigne-2);
 		Colonne = randomColonne(0,nombreColonne-2);
-
-		switch (caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].getType() ) {
-		case (-5):
-			caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setType(0);
-		caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setBackground(Color.CYAN);
-		break;
-
-		case (-41):
-			caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setType(0);
-		caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setBackground(Color.CYAN);
-		break;
-
-		case (-42):
-			caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setType(0);
-		caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setBackground(Color.CYAN);
-		break;
-
-		case (-3):
-			caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setType(0);
-		caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setBackground(Color.CYAN);
-		break;
-
-		case (-2):
-			caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setType(0);
-		caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setBackground(Color.CYAN);
-		break;
-
-		case (-1):
-			caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setType(0);
-		caseGrilleSolo[Ligne+ correcteur][Colonne+ correcteur].setBackground(Color.GREEN);
-		break;
-
-		default :
-			break;
+		
+		
+		if(caseGrilleSolo[Ligne][Colonne].getType() == 0 ) {
+			System.out.println("erreur");
+			
+			for(int i=0;i<nombreLigne;i++) {
+				for (int j=0;j<nombreColonne;j++) {					
+					
+					if(caseGrilleSolo[i][j].getType() ==-1) {
+						Colonne = i;
+						Ligne = j;
+					}
+					
+				}
+			}
+			
+			if(caseGrilleSolo[Colonne][Ligne].getType() == -1) {
+				caseGrilleSolo[Colonne][Ligne].setType(0);
+				caseGrilleSolo[Colonne][Ligne].setBackground(Color.orange);
+			}else {
+				System.out.println("plus d'eau");
+			}
 		}
+
+		if(caseGrilleSolo[Ligne][Colonne].getType() == -5 ) {
+			caseGrilleSolo[Ligne][Colonne].setType(0);
+			caseGrilleSolo[Ligne][Colonne].setBackground(Color.CYAN);
+		}
+
+		if(caseGrilleSolo[Ligne][Colonne].getType() == -41 ) {
+			caseGrilleSolo[Ligne][Colonne].setType(0);
+			caseGrilleSolo[Ligne][Colonne].setBackground(Color.CYAN);
+		}
+
+		if(caseGrilleSolo[Ligne][Colonne].getType() == -42 ) {
+			caseGrilleSolo[Ligne][Colonne].setType(0);
+			caseGrilleSolo[Ligne][Colonne].setBackground(Color.CYAN);
+		}
+
+		if(caseGrilleSolo[Ligne][Colonne].getType() == -3 ) {
+			caseGrilleSolo[Ligne][Colonne].setType(0);
+			caseGrilleSolo[Ligne][Colonne].setBackground(Color.CYAN);
+		}
+
+		if(caseGrilleSolo[Ligne][Colonne].getType() == -2 ) {
+			caseGrilleSolo[Ligne][Colonne].setType(0);
+			caseGrilleSolo[Ligne][Colonne].setBackground(Color.CYAN);
+		}
+
+		if(caseGrilleSolo[Ligne][Colonne].getType() == -1 ) {
+			caseGrilleSolo[Ligne][Colonne].setType(0);
+			caseGrilleSolo[Ligne][Colonne].setBackground(Color.GREEN);
+		}
+
+		tousCoules();
 
 	}
 
