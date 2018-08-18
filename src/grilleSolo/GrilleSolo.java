@@ -454,35 +454,37 @@ public class GrilleSolo  extends JPanel {
 		if(caseGrilleSolo[Ligne][Colonne].getType() == -5 ) {
 			caseGrilleSolo[Ligne][Colonne].setType(0);
 			caseGrilleSolo[Ligne][Colonne].setBackground(Color.CYAN);
+			casePorteAvion--;
 		}
 
 		if(caseGrilleSolo[Ligne][Colonne].getType() == -41 ) {
 			caseGrilleSolo[Ligne][Colonne].setType(0);
 			caseGrilleSolo[Ligne][Colonne].setBackground(Color.CYAN);
+			caseCroiseur--;
 		}
 
 		if(caseGrilleSolo[Ligne][Colonne].getType() == -42 ) {
 			caseGrilleSolo[Ligne][Colonne].setType(0);
 			caseGrilleSolo[Ligne][Colonne].setBackground(Color.CYAN);
+			caseCroiseur--;
 		}
 
 		if(caseGrilleSolo[Ligne][Colonne].getType() == -3 ) {
 			caseGrilleSolo[Ligne][Colonne].setType(0);
 			caseGrilleSolo[Ligne][Colonne].setBackground(Color.CYAN);
+			caseSousMarin--;
 		}
 
 		if(caseGrilleSolo[Ligne][Colonne].getType() == -2 ) {
 			caseGrilleSolo[Ligne][Colonne].setType(0);
 			caseGrilleSolo[Ligne][Colonne].setBackground(Color.CYAN);
+			caseTorpilleur--;
 		}
 
 		if(caseGrilleSolo[Ligne][Colonne].getType() == -1 ) {
 			caseGrilleSolo[Ligne][Colonne].setType(0);
 			caseGrilleSolo[Ligne][Colonne].setBackground(Color.GREEN);
 		}
-
-		tousCoules();
-
 	}
 
 

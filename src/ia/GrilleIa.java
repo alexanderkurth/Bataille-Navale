@@ -80,7 +80,7 @@ public class GrilleIa  extends JPanel {
 			placerBateauSimple();
 			verif +=1;
 		}
-		colorierGrille();
+		//colorierGrille();
 
 	}
 
