@@ -12,7 +12,7 @@ public class FenetreAmelioree extends JFrame{
 		this.setTitle(nom);
 		this.setSize(width, height);
 		this.setLocationRelativeTo(null);
-		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
 

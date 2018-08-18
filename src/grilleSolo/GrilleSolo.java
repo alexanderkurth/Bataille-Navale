@@ -380,7 +380,7 @@ public class GrilleSolo  extends JPanel {
 	}
 
 	// -----------------------------------------Gestion Jeu
-	public void gestionJeu(ActionEvent e) {
+	public void gestionJeu() {
 		if (verif == 5) {
 			//colorierGrille();
 			enjeu = true;

@@ -68,64 +68,18 @@ public class MainJeuBatailleNavaleSolo extends JFrame{
 				}else {
 					changementTour.setText("Fin de Tour");
 
-					joueur.getGrille().gestionJeu(e);
-					ia.getGrilleIa().gestionJeu(e);
+					joueur.getGrille().gestionJeu();
+					ia.getGrilleIa().gestionJeu();
 					joueur.getGrille().setTir(1);
 
 				}
 			}
 		});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		//parametres de la fenetre
 		this.setTitle("Bataille Navale Solo");
 		this.setSize(1300,850);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 
 		this.setVisible(true);	

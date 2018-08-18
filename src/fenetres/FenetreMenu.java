@@ -15,7 +15,7 @@ public class FenetreMenu extends JFrame{
 		this.setTitle(nom);
 		this.setSize(width, height);
 		this.setLocationRelativeTo(null);
-		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setUndecorated(true);
 		this.setVisible(true);
 	}

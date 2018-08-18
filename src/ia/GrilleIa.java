@@ -18,6 +18,8 @@ import grilleSolo.CaseGrille;
 
 
 public class GrilleIa  extends JPanel {
+	
+	private int tirGrilleAdverse = 0;
 
 	private int estVertical;
 
@@ -129,16 +131,35 @@ public class GrilleIa  extends JPanel {
 				}
 
 				//placerBateau();
+				/*
+				this.caseGrilleIa[i][j].addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						int a =((CaseGrille) arg0.getSource()).getAbcisse();
+						int b =((CaseGrille) arg0.getSource()).getOrdone();
+						System.out.println(((CaseGrille) arg0.getSource()).getAbcisse());
+						System.out.println(((CaseGrille) arg0.getSource()).getOrdone());
+						
+						isTir(a,b);
+						
+					}
+					
+				});
+				
+				*/
+				
 				this.add(total);
 			}
 		}
 
 	}
-
-
-
-
-
+	
+	//------------------------isTir
+	public boolean isTir(int i, int j) {
+		System.out.println("AZERETY");
+		return caseGrilleIa[i][j].isTir();
+	}
 
 	//--------------------------------------Random
 	public int randomLigne(int Min,int Max) {
@@ -249,9 +270,9 @@ public class GrilleIa  extends JPanel {
 				Ligne = randomLigne(0,nombreLigne-2);
 				Colonne = randomColonne(0,nombreColonne-2);
 
-				if(caseGrilleIa[Ligne][Colonne].getType() == -1) {
+				if(caseGrilleIa[Ligne+ correcteur][Colonne+ correcteur].getType() == -1) {
 					for (int w = 0; w < tailleBateau; w++) {
-						if(caseGrilleIa[Ligne][Colonne-w].getType() == -1) {
+						if(caseGrilleIa[Ligne+ correcteur][Colonne-w+ correcteur].getType() == -1) {
 							caseGrilleIa[Ligne+ correcteur][Colonne-w+ correcteur].setBackground(Color.GRAY);
 							caseGrilleIa[Ligne + correcteur][Colonne - w + correcteur].setType(b.getTypeBateau());
 							nombreCaseBateau();
@@ -265,12 +286,12 @@ public class GrilleIa  extends JPanel {
 
 					for (int y = 0; y < tailleBateau; y++) {
 
-						if(caseGrilleIa[Ligne][Colonne-y].getType() == -1) {
+						if(caseGrilleIa[Ligne+ correcteur][Colonne-y+ correcteur].getType() == -1) {
 							caseGrilleIa[Ligne+ correcteur][Colonne-y+ correcteur].setBackground(Color.BLACK);
 							caseGrilleIa[Ligne + correcteur][Colonne - y + correcteur].setType(b.getTypeBateau());
 							nombreCaseBateau();
 						}else {
-							if(caseGrilleIa[Ligne][Colonne-y].getType() != -1) {
+							if(caseGrilleIa[Ligne+ correcteur][Colonne-y+ correcteur].getType() != -1) {
 								obstacle += 1;
 								System.out.println("Taille obstacle : " + obstacle);	
 							}
@@ -281,11 +302,11 @@ public class GrilleIa  extends JPanel {
 			}
 		}else {
 
-			if(caseGrilleIa[Ligne][Colonne].getType() == -1) {
+			if(caseGrilleIa[Ligne+ correcteur][Colonne+ correcteur].getType() == -1) {
 
 				for (int y = 0; y < tailleBateau; y++) {
 
-					if(caseGrilleIa[Ligne][Colonne+y].getType() == -1) {
+					if(caseGrilleIa[Ligne+ correcteur][Colonne+y+ correcteur].getType() == -1) {
 						caseGrilleIa[Ligne+ correcteur][Colonne+y+ correcteur].setBackground(Color.YELLOW);
 						caseGrilleIa[Ligne + correcteur][Colonne + y + correcteur].setType(b.getTypeBateau());
 						nombreCaseBateau();
@@ -298,12 +319,12 @@ public class GrilleIa  extends JPanel {
 
 				for (int y = 0; y < tailleBateau; y++) {
 
-					if(caseGrilleIa[Ligne][Colonne+y].getType() == -1) {
+					if(caseGrilleIa[Ligne+ correcteur][Colonne+y+correcteur].getType() == -1) {
 						caseGrilleIa[Ligne+ correcteur][Colonne+y+ correcteur].setBackground(Color.BLACK);
 						caseGrilleIa[Ligne + correcteur][Colonne + y + correcteur].setType(b.getTypeBateau());
 						nombreCaseBateau();
 					}else {
-						if(caseGrilleIa[Ligne][Colonne+y].getType() != -1) {
+						if(caseGrilleIa[Ligne+ correcteur][Colonne+y+ correcteur].getType() != -1) {
 							obstacle += 1;
 							System.out.println("Taille obstacle : " + obstacle);	
 						}
@@ -340,7 +361,7 @@ public class GrilleIa  extends JPanel {
 	}
 
 	// -----------------------------------------Gestion Jeu
-	public void gestionJeu(ActionEvent e) {
+	public void gestionJeu() {
 		if (verif == 5) {
 			enjeu = true;
 			verif = 6;
@@ -354,8 +375,6 @@ public class GrilleIa  extends JPanel {
 			if (tir == 0) {
 				numeroTour += 1;
 				tir = 1;
-			}else {
-				((AbstractButton) e.getSource()).setText("Vous devez tirer");
 			}
 		}
 	}
@@ -434,5 +453,15 @@ public class GrilleIa  extends JPanel {
 		x= this.caseCroiseur+this.casePorteAvion+this.caseSousMarin+this.caseTorpilleur;	
 		return x;
 	}
+
+	public int getTirGrilleAdverse() {
+		return tirGrilleAdverse;
+	}
+
+	public void setTirGrilleAdverse(int tirGrilleAdverse) {
+		this.tirGrilleAdverse = tirGrilleAdverse;
+	}
+	
+	
 }
 
