@@ -22,6 +22,8 @@ public class GrilleSolo  extends JPanel {
 
 	// ------------------------------------------------------------Utilitaire
 
+	private int x =0;
+
 	private int obstacle =0;
 
 	private int correcteur = 1;
@@ -152,7 +154,7 @@ public class GrilleSolo  extends JPanel {
 		this.caseGrilleSolo = new CaseGrille[nombreLigne][nombreColonne];
 		this.total .setLayout(new GridLayout(nombreLigne, nombreColonne));
 
-		generationGrille(nombreLigne, nombreColonne);
+		generationGrille(nombreLigne, nombreColonne);		
 	}
 
 	public void generationGrille(int nombreLigne, int nombreColonne) {
@@ -189,13 +191,9 @@ public class GrilleSolo  extends JPanel {
 				}
 
 				placerBateau();
-				this.add(total);
+				this.add(total);				
 			}
 		}
-		
-		System.out.println(nombreColonne);
-		System.out.println(nombreLigne);
-
 	}
 
 	// ------------------------------------Placement Bateaux
@@ -427,22 +425,22 @@ public class GrilleSolo  extends JPanel {
 
 		Ligne = randomLigne(0,nombreLigne-2);
 		Colonne = randomColonne(0,nombreColonne-2);
-		
-		
+
+
 		if(caseGrilleSolo[Ligne][Colonne].getType() == 0 ) {
 			System.out.println("erreur");
-			
+
 			for(int i=0;i<nombreLigne;i++) {
 				for (int j=0;j<nombreColonne;j++) {					
-					
+
 					if(caseGrilleSolo[i][j].getType() ==-1) {
 						Colonne = i;
 						Ligne = j;
 					}
-					
+
 				}
 			}
-			
+
 			if(caseGrilleSolo[Colonne][Ligne].getType() == -1) {
 				caseGrilleSolo[Colonne][Ligne].setType(0);
 				caseGrilleSolo[Colonne][Ligne].setBackground(Color.orange);
@@ -505,7 +503,7 @@ public class GrilleSolo  extends JPanel {
 	}
 
 	public int getTotalCaseBateau() {
-		int x= this.caseCroiseur+this.casePorteAvion+this.caseSousMarin+this.caseTorpilleur;	
+		x= this.caseCroiseur+this.casePorteAvion+this.caseSousMarin+this.caseTorpilleur;	
 		return x;
 	}
 

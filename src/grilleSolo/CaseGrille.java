@@ -8,8 +8,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 
+import ia.IaData;
+import joueur.JoueurSolo;
+
 
 public class CaseGrille extends JButton{
+	
+	private boolean placement = true;
+	private JoueurSolo joueur;
+	private IaData ia;
 	
 	private int abcisse;
 	private int ordone;
@@ -22,7 +29,7 @@ public class CaseGrille extends JButton{
 		
 		Dimension d = new Dimension(48,48);
 		this.setPreferredSize(d);
-		
+		/*
 		this.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -33,7 +40,7 @@ public class CaseGrille extends JButton{
 
 
 		});
-		
+		*/
 	}
 
 	public int getType() {

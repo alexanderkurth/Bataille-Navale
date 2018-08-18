@@ -30,6 +30,7 @@ public class GrilleIa  extends JPanel {
 	private int verif = 0;
 
 	// ------------------------------------------------------------Utilitaire
+	private int x =0;
 
 	private int numeroTour = 1;
 
@@ -238,6 +239,7 @@ public class GrilleIa  extends JPanel {
 						}
 					}
 				}
+				tailleBateau = 0;
 			}
 
 			if(obstacle != 0) {
@@ -247,14 +249,15 @@ public class GrilleIa  extends JPanel {
 				Ligne = randomLigne(0,nombreLigne-2);
 				Colonne = randomColonne(0,nombreColonne-2);
 
-				if(caseGrilleIa[Ligne+ correcteur][Colonne+ correcteur].getType() == -1) {
+				if(caseGrilleIa[Ligne][Colonne].getType() == -1) {
 					for (int w = 0; w < tailleBateau; w++) {
-						if(caseGrilleIa[Ligne+ correcteur][Colonne-w+ correcteur].getType() == -1) {
+						if(caseGrilleIa[Ligne][Colonne-w].getType() == -1) {
 							caseGrilleIa[Ligne+ correcteur][Colonne-w+ correcteur].setBackground(Color.GRAY);
 							caseGrilleIa[Ligne + correcteur][Colonne - w + correcteur].setType(b.getTypeBateau());
 							nombreCaseBateau();
 						}
 					}
+					tailleBateau = 0;
 
 				}else {
 					Ligne = randomLigne(0,nombreLigne-2);
@@ -262,48 +265,51 @@ public class GrilleIa  extends JPanel {
 
 					for (int y = 0; y < tailleBateau; y++) {
 
-						if(caseGrilleIa[Ligne+ correcteur][Colonne-y+ correcteur].getType() == -1) {
+						if(caseGrilleIa[Ligne][Colonne-y].getType() == -1) {
 							caseGrilleIa[Ligne+ correcteur][Colonne-y+ correcteur].setBackground(Color.BLACK);
 							caseGrilleIa[Ligne + correcteur][Colonne - y + correcteur].setType(b.getTypeBateau());
 							nombreCaseBateau();
 						}else {
-							if(caseGrilleIa[Ligne+ correcteur][Colonne-y+ correcteur].getType() != -1) {
+							if(caseGrilleIa[Ligne][Colonne-y].getType() != -1) {
 								obstacle += 1;
 								System.out.println("Taille obstacle : " + obstacle);	
 							}
 						}
 					}
+					tailleBateau = 0;
 				}
 			}
 		}else {
 
-			if(caseGrilleIa[Ligne+ correcteur][Colonne+ correcteur].getType() == -1) {
+			if(caseGrilleIa[Ligne][Colonne].getType() == -1) {
 
 				for (int y = 0; y < tailleBateau; y++) {
 
-					if(caseGrilleIa[Ligne+ correcteur][Colonne+y+ correcteur].getType() == -1) {
+					if(caseGrilleIa[Ligne][Colonne+y].getType() == -1) {
 						caseGrilleIa[Ligne+ correcteur][Colonne+y+ correcteur].setBackground(Color.YELLOW);
 						caseGrilleIa[Ligne + correcteur][Colonne + y + correcteur].setType(b.getTypeBateau());
 						nombreCaseBateau();
 					}							
 				}
+				tailleBateau = 0;
 			}else {
 				Ligne = randomLigne(0,nombreLigne-2);
 				Colonne = randomColonne(0,nombreColonne-2);
 
 				for (int y = 0; y < tailleBateau; y++) {
 
-					if(caseGrilleIa[Ligne+ correcteur][Colonne+y+ correcteur].getType() == -1) {
+					if(caseGrilleIa[Ligne][Colonne+y].getType() == -1) {
 						caseGrilleIa[Ligne+ correcteur][Colonne+y+ correcteur].setBackground(Color.BLACK);
 						caseGrilleIa[Ligne + correcteur][Colonne + y + correcteur].setType(b.getTypeBateau());
 						nombreCaseBateau();
 					}else {
-						if(caseGrilleIa[Ligne+ correcteur][Colonne+y+ correcteur].getType() != -1) {
+						if(caseGrilleIa[Ligne][Colonne+y].getType() != -1) {
 							obstacle += 1;
 							System.out.println("Taille obstacle : " + obstacle);	
 						}
 					}
 				}
+				tailleBateau = 0;
 			}	
 		}				
 
@@ -425,7 +431,7 @@ public class GrilleIa  extends JPanel {
 	}
 
 	public int getTotalCaseBateau() {
-		int x= this.caseCroiseur+this.casePorteAvion+this.caseSousMarin+this.caseTorpilleur;	
+		x= this.caseCroiseur+this.casePorteAvion+this.caseSousMarin+this.caseTorpilleur;	
 		return x;
 	}
 }

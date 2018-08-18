@@ -9,19 +9,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import boutonsPersonnalises.BoutonSpecial;
-import grilleSolo.GrilleSolo;
-import ia.GrilleIa;
 import ia.IaData;
 import joueur.JoueurSolo;
 
 public class MainJeuBatailleNavaleSolo extends JFrame{
-
-	private GrilleSolo grilleJoueur;
-	private GrilleIa grilleIa;
-
 	//Gestion joueurs
 	private BoutonSpecial changementTour;
-	private boolean tourJoueur1 = true;
 	private boolean placement = true;
 
 	//Jpanel
@@ -53,7 +46,7 @@ public class MainJeuBatailleNavaleSolo extends JFrame{
 
 		//Insertion des composants dans les layouts
 		gauche.add(joueur.getGrille());
-		droite.add(ia.getG());
+		droite.add(ia.getGrilleIa());
 
 		intermediaire.add(changementTour);
 		bouton.add(intermediaire);
@@ -76,7 +69,7 @@ public class MainJeuBatailleNavaleSolo extends JFrame{
 					changementTour.setText("Fin de Tour");
 
 					joueur.getGrille().gestionJeu(e);
-					ia.getG().gestionJeu(e);
+					ia.getGrilleIa().gestionJeu(e);
 					joueur.getGrille().setTir(1);
 
 				}

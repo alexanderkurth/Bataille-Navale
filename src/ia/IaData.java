@@ -15,7 +15,7 @@ public class IaData {
 		this.g= new GrilleIa(12,12);
 	}
 
-	public GrilleIa getG() {
+	public GrilleIa getGrilleIa() {
 		return g;
 	}
 
